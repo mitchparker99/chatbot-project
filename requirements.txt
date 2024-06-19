@@ -1,0 +1,8 @@
+Django
+djangorestframework
+nltk
+numpy
+keras
+tensorflow
+gunicorn
+psycopg2-binary
