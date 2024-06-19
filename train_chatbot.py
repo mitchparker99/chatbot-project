@@ -45,10 +45,20 @@ for doc in documents:
     output_row[classes.index(doc[1])] = 1
     training.append([bag, output_row])
 
+# Debugging statements
+for i, (bag, output) in enumerate(training):
+    print(f"Document {i}: Bag of words length = {
+          len(bag)}, Output length = {len(output)}")
+
+# Ensure that all bags of words have the same length
+max_len_bag = max(len(bag) for bag, _ in training)
+max_len_output = max(len(output) for _, output in training)
+print(f"Max bag length: {max_len_bag}, Max output length: {max_len_output}")
+
 random.shuffle(training)
-training = np.array(training)
-train_x = list(training[:, 0])
-train_y = list(training[:, 1])
+training = np.array(training, dtype=object)
+train_x = np.array([x[0] for x in training])
+train_y = np.array([x[1] for x in training])
 
 model = Sequential()
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
