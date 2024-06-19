@@ -1,6 +1,0 @@
-CREATE DATABASE chatbot_db;
-CREATE USER mitchellparker WITH PASSWORD '1234';
-ALTER ROLE mitchellparker SET client_encoding TO 'utf8';
-ALTER ROLE mitchellparker SET default_transaction_isolation TO 'read committed';
-ALTER ROLE mitchellparker SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE chatbot_db TO mitchellparker;
